@@ -64,7 +64,9 @@ python train.py \
 python test.py \
     --model_path mobilenetv3_small_printer_30.h5 \
     --model_type small \
-    --image_path test/1.jpg
+    --image_path test/1.jpg \
+    --featuremap False \
+    --heatmap False
 ```
 
 
