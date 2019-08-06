@@ -34,6 +34,7 @@ def iter_occlusion(image, size=8):
            tmp[y - occlusion_padding:y + occlusion_center.shape[0] + occlusion_padding, \
              x - occlusion_padding:x + occlusion_center.shape[1] + occlusion_padding] \
              = occlusion
+        
 
            tmp[y:y + occlusion_center.shape[0], x:x + occlusion_center.shape[1]] = occlusion_center
 
@@ -130,11 +131,11 @@ def main(args):
     model.load_weights(args.model_path, by_name=True)
     model.summary()
 
-    # model.compile(
-    #     optimizer=_available_optimizers.get('sgd')(0.001),
-    #     loss="categorical_crossentropy",
-    #     metrics=["accuracy"],
-    # )
+    model.compile(
+        optimizer=_available_optimizers.get('sgd')(0.001),
+        loss="categorical_crossentropy",
+        metrics=["accuracy"],
+    )
     
     # visualize featuremap
     if args.featuremap:
